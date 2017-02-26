@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    android:background="@android:color/darker_gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="own.code.play_nigga.MainActivity">
@@ -35,7 +36,7 @@
         android:background="#ffffff"
         android:choiceMode="singleChoice"
         android:divider="@android:color/darker_gray"
-        android:layout_width="240dp"
+        android:layout_width="280dp"
         android:layout_height="match_parent"/>
 
 </android.support.v4.widget.DrawerLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Play_Nigga</string>
+    <string name="app_name">NewPie</string>
     <string-array name="navigation_drawer_items">
         <item>The Hindu</item>
         <item>The economists</item>
@@ -9,6 +9,4 @@
         <item>New York Times</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
