@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
         setupDrawerToggle();
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
 
     private void setupDrawerToggle() {
