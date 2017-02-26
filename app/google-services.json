@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "898638471608",
+    "firebase_url": "https://playnigga.firebaseio.com",
+    "project_id": "playnigga",
+    "storage_bucket": "playnigga.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898638471608:android:184c6376944bd5a4",
+        "android_client_info": {
+          "package_name": "own.code.play_nigga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898638471608-ktrrg9mk7ruuvk24um9gjob9lgt9ju0n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "own.code.play_nigga",
+            "certificate_hash": "d387fe1ae5da0397c6a4786a13f79da39d9c8685"
+          }
+        },
+        {
+          "client_id": "898638471608-ai9afjec4a4bk17gg34jfjq178f2qa2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJBCkNaVmESEde9mugsvUcY5bD6qtDHx4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898638471608-ai9afjec4a4bk17gg34jfjq178f2qa2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

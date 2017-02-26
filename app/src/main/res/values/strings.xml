@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Play_Nigga</string>
+    <string-array name="navigation_drawer_items">
+        <item>The Hindu</item>
+        <item>The economists</item>
+        <item>CNN</item>
+        <item>BBC News</item>
+        <item>Wall Street Journal</item>
+        <item>New York Times</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
