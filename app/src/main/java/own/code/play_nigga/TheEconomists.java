@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.comix.overwatch.HiveProgressView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +34,7 @@ public class TheEconomists extends Fragment{
     private NewsAdapter newsAdapter;
     private ListView listView;
     private String newsArticleUrl;
+    private HiveProgressView progressView;
 
     public TheEconomists() {
     }
@@ -42,6 +45,7 @@ public class TheEconomists extends Fragment{
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_the_economists, container, false);
         listView = (ListView) v.findViewById(R.id.News_list);
+        progressView = (HiveProgressView) v.findViewById(R.id.progressBar);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,6 +57,8 @@ public class TheEconomists extends Fragment{
         });
         newsArticleUrl = getArguments().getString("Url");
         TheEconomistsAsyncTask asyncTask = new TheEconomistsAsyncTask();
+        progressView.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.INVISIBLE);
         asyncTask.execute();
         return v;
     }
@@ -93,6 +99,8 @@ public class TheEconomists extends Fragment{
 
 
     private void updateUI(NewsAdapter adapter) {
+        listView.setVisibility(View.VISIBLE);
+        progressView.setVisibility(View.GONE);
         listView.setAdapter(adapter);
     }
 }

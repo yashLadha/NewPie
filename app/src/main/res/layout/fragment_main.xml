@@ -2,7 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="own.code.play_nigga.Main">
+
+    <com.comix.overwatch.HiveProgressView
+        android:id="@+id/progressBar"
+        android:layout_gravity="center"
+        app:hive_animDuration="5000"
+        app:hive_maxAlpha="255"
+        app:hive_color="@color/colorPrimary"
+        android:layout_width="120dp"
+        android:visibility="invisible"
+        android:layout_height="120dp" />
 
     <ListView
         android:id="@+id/News_list"

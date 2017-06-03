@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.comix.overwatch.HiveProgressView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +32,7 @@ public class CNN extends Fragment {
     private NewsAdapter newsAdapter;
     private ListView listView;
     private String newsArticleUrl;
+    private HiveProgressView progressView;
 
     public CNN() {
     }
@@ -40,6 +43,7 @@ public class CNN extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_cnn, container, false);
         listView = (ListView) v.findViewById(R.id.News_list);
+        progressView = (HiveProgressView) v.findViewById(R.id.progressBar);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -51,6 +55,8 @@ public class CNN extends Fragment {
         });
         newsArticleUrl = getArguments().getString("Url");
         MainAsyncTask mainAsyncTask = new MainAsyncTask();
+        progressView.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.INVISIBLE);
         mainAsyncTask.execute();
         return v;
     }
@@ -90,6 +96,8 @@ public class CNN extends Fragment {
     }
 
     private void updateUI(NewsAdapter adapter) {
+        listView.setVisibility(View.VISIBLE);
+        progressView.setVisibility(View.GONE);
         listView.setAdapter(adapter);
     }
 
