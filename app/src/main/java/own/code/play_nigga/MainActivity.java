@@ -116,19 +116,31 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new TheEconomists();
                     break;
                 case 2:
-                    url = " https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=e1e2e737471c49a4b1e981f086f30c4c";
+                    url = " https://newsapi.org/v1/articles?source=" +
+                            "cnn" +
+                            "&sortBy=top&apiKey=" +
+                            "e1e2e737471c49a4b1e981f086f30c4c";
                     fragment = new CNN();
                     break;
                 case 3:
-                    url = "https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=e1e2e737471c49a4b1e981f086f30c4c";
+                    url = "https://newsapi.org/v1/articles?source=" +
+                            "bbc-news" +
+                            "&sortBy=top&apiKey=" +
+                            "e1e2e737471c49a4b1e981f086f30c4c";
                     fragment = new BBBCNews();
                     break;
                 case 4:
-                    url = "https://newsapi.org/v1/articles?source=the-wall-street-journal&sortBy=top&apiKey=e1e2e737471c49a4b1e981f086f30c4c";
+                    url = "https://newsapi.org/v1/articles?source=" +
+                            "the-wall-street-journal" +
+                            "&sortBy=top&apiKey=" +
+                            "e1e2e737471c49a4b1e981f086f30c4c";
                     fragment = new Wall_Street_Journal();
                     break;
                 case 5:
-                    url = "https://newsapi.org/v1/articles?source=the-new-york-times&sortBy=top&apiKey=e1e2e737471c49a4b1e981f086f30c4c";
+                    url = "https://newsapi.org/v1/articles?source=" +
+                            "the-new-york-times" +
+                            "&sortBy=top&apiKey=" +
+                            "e1e2e737471c49a4b1e981f086f30c4c";
                     fragment = new New_York_Times();
                     break;
             }
