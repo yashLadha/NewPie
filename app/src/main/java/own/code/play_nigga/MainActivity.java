@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
             mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
             setupDrawerToggle();
             mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+            new MaterialDialog.Builder(this)
+                    .title("Information")
+                    .content("Please select the news Group from the navigation Menu. (At top left of Screen)")
+                    .show();
         } else {
             Intent i = new Intent(this, NoConnection.class);
             startActivity(i);
