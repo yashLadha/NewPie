@@ -1,5 +1,9 @@
 package own.code.play_nigga;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -33,35 +37,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTitle = mDrawerTitle = getTitle();
-        mDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        boolean isConnected = getConnectionInfo();
+        Log.d(LOG_TAG, "Connection Info: " + isConnected);
+        if (isConnected) {
+            mTitle = mDrawerTitle = getTitle();
+            mDrawerItemTitles = getResources().getStringArray(R.array.navigation_drawer_items);
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-        setupToolbar();
+            setupToolbar();
 
-        ArrayList<DataModel> drawerItem = new ArrayList<>();
-        drawerItem.add(new DataModel("The Hindu"));
-        drawerItem.add(new DataModel("The economists"));
-        drawerItem.add(new DataModel("CNN"));
-        drawerItem.add(new DataModel("BBC News"));
-        drawerItem.add(new DataModel("Wall Street Journal"));
-        drawerItem.add(new DataModel("The New-York Times"));
+            ArrayList<DataModel> drawerItem = new ArrayList<>();
+            drawerItem.add(new DataModel("The Hindu"));
+            drawerItem.add(new DataModel("The economists"));
+            drawerItem.add(new DataModel("CNN"));
+            drawerItem.add(new DataModel("BBC News"));
+            drawerItem.add(new DataModel("Wall Street Journal"));
+            drawerItem.add(new DataModel("The New-York Times"));
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setHomeButtonEnabled(true);
 
-        DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.list_view_item_row, drawerItem);
-        mDrawerList.setAdapter(adapter);
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        setupDrawerToggle();
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+            DrawerItemCustomAdapter adapter = new DrawerItemCustomAdapter(this, R.layout.list_view_item_row, drawerItem);
+            mDrawerList.setAdapter(adapter);
+            mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+            mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            setupDrawerToggle();
+            mDrawerLayout.setDrawerListener(mDrawerToggle);
+        } else {
+            Intent i = new Intent(this, NoConnection.class);
+            startActivity(i);
+            finish();
+        }
     }
 
     private void setupDrawerToggle() {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerToggle.syncState();
+    }
+
+    public boolean getConnectionInfo() {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     public class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -134,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
+        if  (mDrawerToggle != null)
+            mDrawerToggle.syncState();
     }
 
     @Override
